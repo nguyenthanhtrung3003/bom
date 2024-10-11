@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nhúng video</title>
+  <title>Nhúng video Redirect to Shopee</title>
 </head>
 <body>
   <h1>Video của tôi</h1>
-  <a href="https://s.shopee.vn/8zn7BH1ywi" target="_blank">
+  <script>
+        // Thêm sự kiện khi người dùng nhấp vào video
+        document.getElementById('myVideo').addEventListener('click', function() {
+            window.location.href = 'https://s.shopee.vn/6V5m63VqkV';  // Thay thế URL này bằng trang Shopee mà bạn muốn
+        });
+    </script>
     <iframe src="https://player.vimeo.com/video/1018610398" width="600" height="400" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </a>
 </body>
