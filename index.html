@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Vimeo với Chuyển hướng đến Shopee</title>
+    <style>
+        /* CSS cho video và lớp phủ */
+        .video-container {
+            position: relative;
+            width: 640px; /* Điều chỉnh chiều rộng nếu cần */
+            height: 360px; /* Điều chỉnh chiều cao nếu cần */
+            cursor: pointer; /* Hiển thị con trỏ tay khi di chuột */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Lớp phủ cho sự kiện click */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* Có thể điều chỉnh độ trong suốt */
+            cursor: pointer; /* Hiển thị con trỏ tay khi di chuột */
+            display: none; /* Ẩn lớp phủ ban đầu */
+        }
+
+        button {
+            margin-top: 20px; /* Khoảng cách giữa video và nút */
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer; /* Hiển thị con trỏ tay khi di chuột */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Xem Video</h1>
+    <div class="video-container">
+        <iframe id="vimeo-video" src="https://player.vimeo.com/video/1018604151?autoplay=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="overlay" id="overlay" onclick="redirectToShopee()"></div> <!-- Lớp phủ -->
+    </div>
+
+    <button onclick="toggleOverlay()">Bật/Tắt Lớp Phủ</button> <!-- Nút để bật/tắt lớp phủ -->
+
+    <script>
+        function redirectToShopee() {
+            window.location.href = "https://s.shopee.vn/AKIUwt3M8m"; // Thay đổi liên kết đến Shopee tại đây
+        }
+
+        function toggleOverlay() {
+            const overlay = document.getElementById("overlay");
+            // Kiểm tra trạng thái hiển thị của lớp phủ
+            if (overlay.style.display === "none" || overlay.style.display === "") {
+                overlay.style.display = "block"; // Hiện lớp phủ
+            } else {
+                overlay.style.display = "none"; // Ẩn lớp phủ
+            }
+        }
+
+        // Đảm bảo lớp phủ ẩn ban đầu
+        document.getElementById("overlay").style.display = "none";
+    </script>
+
+</body>
+</html>
