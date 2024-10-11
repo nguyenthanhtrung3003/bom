@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Vimeo với Chuyển hướng đến Shopee</title>
+    <style>
+        /* CSS cho video và lớp phủ */
+        .video-container {
+            position: relative;
+            width: 640px; /* Điều chỉnh chiều rộng nếu cần */
+            height: 360px; /* Điều chỉnh chiều cao nếu cần */
+            cursor: pointer; /* Hiển thị con trỏ tay khi di chuột */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Lớp phủ cho sự kiện click */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0); /* Trong suốt để không che video */
+            cursor: pointer; /* Hiển thị con trỏ tay khi di chuột */
+            display: none; /* Ẩn lớp phủ ban đầu */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Xem Video</h1>
+    <div class="video-container" onclick="toggleOverlay()">
+        <iframe id="vimeo-video" src="https://player.vimeo.com/video/1018604151?autoplay=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="overlay" id="overlay"></div> <!-- Lớp phủ -->
+    </div>
+
+    <script>
+        function toggleOverlay() {
+            const overlay = document.getElementById("overlay");
+            if (overlay.style.display === "none") {
+                overlay.style.display = "block"; // Hiện lớp phủ để chuyển hướng
+                setTimeout(() => {
+                    redirectToShopee();
+                }, 500); // Thời gian chờ 0.5 giây để cho video có thể phát nếu người dùng nhấn vào
+            } else {
+                overlay.style.display = "none"; // Ẩn lớp phủ khi nhấn vào
+            }
+        }
+
+        function redirectToShopee() {
+            window.location.href = "https://s.shopee.vn/g7zNwMSXW"; // Thay đổi liên kết đến Shopee tại đây
+        }
+
+        // Đặt sự kiện click cho iframe
+        const videoContainer = document.querySelector('.video-container');
+        videoContainer.addEventListener('click', function(event) {
+            const overlay = document.getElementById("overlay");
+            if (overlay.style.display === "none") {
+                overlay.style.display = "block"; // Hiện lớp phủ để chuyển hướng
+            }
+        });
+    </script>
+
+</body>
+</html>
